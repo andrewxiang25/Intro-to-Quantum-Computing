@@ -1,0 +1,235 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Applet container styling */
+.applet-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: flex-start; /* Align children to the start of the container */
+}
+
+.applet-title {
+    text-align: center; /* Center the text within the title element */
+    margin-top: 20px; /* Add space above the title */
+    width: 100%; /* Ensure the title takes full width of the container for proper text alignment */
+    font-size: 2em; /* Adjust font size as desired */
+    /* Add any additional styling you want for the title */
+}
+.qubit-visualization .circle {
+    /* Resize and position the circle as required */
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Containing block for the absolute positioned arrow */
+}
+
+
+.arrow-head{
+    /* Style for the arrow */
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid blue;
+    position: absolute;
+    top: 15px; /* Adjust top position to align with the circle's center */
+    left: 50%;
+    transform: translateX(-50%) rotateY(0deg);
+    transform-origin: 50% 100%; /* Spin around the base of the triangle */
+    animation: spinArrow 2s linear infinite;
+}
+.arrow-tail {
+    width: 2px;
+    height: 40px; /* Tail length */
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    animation: spinArrow 2s linear infinite;
+}
+@keyframes spinArrow {
+    from { transform: translate(-50%, -50%) rotateY(0deg); }
+    to { transform: translate(-50%, -50%) rotateY(360deg); }
+}
+
+/* Flashing animation for the quantum search target ball */
+@keyframes flashGrey {
+    0%, 100% { background-color: grey; }
+    50% { background-color: white; }
+}
+
+.ball-flashing-grey {
+    animation: flashGrey 1s infinite;
+}
+
+@keyframes flashRed {
+    0%, 100% { background-color: red; }
+    50% { background-color: white; }
+}
+
+.ball-flashing-red {
+    animation: flashRed 1s infinite;
+}
+
+/* This will make the desired ball flash twice quickly */
+.ball-found {
+    animation: flashRed 1s 2;
+}
+
+
+/* Styling for the algorithm controls */
+.algorithm-controls label, 
+.algorithm-controls select, 
+.algorithm-controls button {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the results section */
+.results {
+    border-left: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+.results div {
+    margin-bottom: 10px;
+}
+
+.animation-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.classical-search, .quantum-search {
+    margin-top: 20px;
+}
+
+#classicalBallsContainer, #quantumBallsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    max-width: 300px;
+}
+
+.ball {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid black;
+    margin: 2px;
+}
+
+.target {
+    background-color: red; /* Target ball color */
+}
+
+/* Styling for the range slider */
+input[type=range] {
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-track,
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]::--ms-track {
+    height: 8.4px;
+    cursor: pointer;
+    background: #ddd; /* Your track color */
+    border-radius: 5px;
+    /* Add additional styling if needed */
+}
+
+input[type=range]::-moz-range-thumb,
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::--ms-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: #000000;
+    cursor: pointer;
+    /* Add additional styling if needed */
+}
+
+/* Remove default styles for WebKit browsers */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+/* Remove default styles for MS browsers */
+input[type=range]::-ms-thumb {
+    appearance: none;
+    margin-top: 0; /* You might need to adjust this if the thumb is misaligned with the track */
+}
+
+input[type=range]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Add styles for the superposition display */
+.superposition-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.superposition-display label {
+    margin: 5px 0;
+}
+
+.superposition-display input[type=range] {
+    width: 100%;
+    margin: 5px 0;
+}
+
+/* Style the spans that display the angle and amplitude values */
+#angleDisplay,
+#amplitudeDisplay {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* ... existing styles ... */

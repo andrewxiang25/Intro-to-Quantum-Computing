@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grover's Algorithm Demonstration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    
+    <div class="applet-container">
+        <h1 class="applet-title">How does Quantum Computing work?</h1>
+        <!-- <div class="superposition-control">
+            <label for="qubitState">Qubit Superposition State:</label>
+            <input type="range" id="qubitState" min="0" max="1" step="0.01" value="0.5">
+        </div> -->
+        <div class="superposition-display">
+            <label for="qubitAngle">Qubit Angle (θ):</label>
+            <input type="range" id="qubitAngle" min="0" max="360" step="1" value="0">
+            <span id="angleDisplay">0°</span>
+    
+            <label for="qubitAmplitude">Qubit Superposition Amplitude (α):</label>
+            <input type="range" id="qubitAmplitude" min="0" max="1" step="0.01" value="0.71">
+            <span id="amplitudeDisplay">0.71</span>
+        </div>
+        <div class="qubit-visualization">
+            <!-- Single circle with rotating arrow for qubit visualization -->
+            <div class="circle" id="quantumCircle">
+                <div class="arrow-tail" id="quantumArrowTail"></div>
+                <div class="arrow-head" id="quantumArrowHead"></div>
+            </div>
+        </div>
+
+        <div class="algorithm-controls">
+            <!-- Algorithm Controls Section -->
+            <label for="qubitsSelection">Number of spin 1/2 qubits (n):</label>
+            <select id="qubitsSelection" onchange="updateQubits()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button id="runButton">Run Grover's Algorithm</button>
+        </div>
+
+        <div class="animation-container">
+            <div class="classical-search">
+                <h3>Classical Search</h3>
+                <div id="classicalBallsContainer"></div>
+                <div id="classicalResult" class="result"></div> <!-- Classical result at the bottom -->
+            </div>
+            <div class="quantum-search">
+                <h3>Quantum Search</h3>
+                <div id="quantumBallsContainer"></div>
+                <div id="quantumResult" class="result"></div> <!-- Quantum result at the bottom -->
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
